@@ -37,12 +37,12 @@ class PodcastService {
     return item;
   }
 
-  Future<SearchResult> getCharts([
+  Future<SearchResult> getCharts({
     int limit = 20,
     Country country = Country.none,
     bool explicit = false,
     String genre = '',
-  ]) async {
+  }) async {
     final charts = await search.charts(
       limit: limit,
       country: country,

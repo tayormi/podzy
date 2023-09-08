@@ -46,6 +46,23 @@ class HomeScreen extends ConsumerWidget {
                 loading: () {
                   return const Center(child: CircularProgressIndicator());
                 },
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              ref.watch(getCategoryProvider(category: 'Business')).when(
+                data: (SearchResult result) {
+                  return PodcastSection(
+                    title: 'Business',
+                    result: result,
+                  );
+                },
+                error: (Object error, StackTrace stackTrace) {
+                  return Center(child: Text(error.toString()));
+                },
+                loading: () {
+                  return const Center(child: CircularProgressIndicator());
+                },
               )
             ]),
           ),

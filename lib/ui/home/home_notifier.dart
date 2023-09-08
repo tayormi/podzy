@@ -10,3 +10,11 @@ Future<SearchResult> getTrending(GetTrendingRef ref) async {
   final result = await podcastService.getCharts();
   return result;
 }
+
+@riverpod
+Future<SearchResult> getCategory(GetCategoryRef ref,
+    {String category = ''}) async {
+  final podcastService = ref.read(podcastServiceProvider);
+  final result = await podcastService.getCharts(genre: category);
+  return result;
+}
